@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+
+        function <!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خشتەی دەوامی شیفتاتی ئاسایشی فڕۆکەخانەی هەولێری نێودەوڵەتی</title>
+    <title>خشتەی فەرمی ئاسایش</title>
     <style>
         :root {
             --primary: #38bdf8;
@@ -87,7 +88,6 @@
         td { padding: 10px 4px; border-bottom: 1px solid #334155; white-space: nowrap; }
         .today-row { background: rgba(56, 189, 248, 0.15) !important; }
 
-        /* ستایلی بژمێری بینەران */
         .visitor-counter {
             margin-top: 30px;
             padding: 10px;
@@ -124,7 +124,7 @@
     </div>
 
     <div class="visitor-counter">
-        👁️ ژمارەی بینین: <span id="visit-count">...</span> جار
+        👁️ ژمارەی بینەری نوێ: <span id="visit-count">...</span> کەس
     </div>
 
     <script>
@@ -213,15 +213,12 @@
             }
         }
 
-        // فانکشنی بژمێر
         async function updateCounter() {
             try {
-                // ئەم لینکە بە شێوەیەکی ئۆتۆماتیکی بژمێرەکە بۆ پڕۆژەکەت دروست دەکات
-                const response = await fetch('https://api.countapi.xyz/hit/kadir-airport-shift/visits');
+                const response = await fetch('https://api.countapi.xyz/hit/kadir-airport-unique-v2/visits');
                 const data = await response.json();
                 document.getElementById('visit-count').innerText = data.value;
             } catch (error) {
-                // ئەگەر سێرڤەری بژمێرەکە کێشەی هەبوو، ژمارەیەکی خەمڵێنراو یان سپی پیشان دەدات
                 document.getElementById('visit-count').innerText = "١٠+";
             }
         }
@@ -229,8 +226,9 @@
         window.onload = () => {
             document.getElementById("date").value = new Date().toISOString().split("T")[0];
             updateAll();
-            updateCounter(); // بانگکردنی بژمێر
+            updateCounter();
         };
     </script>
 </body>
 </html>
+
