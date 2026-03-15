@@ -23,17 +23,19 @@
             margin: 0;
         }
 
-        /* ستایلی ئاڵای کوردستان */
-        .flag-container {
+        /* ستایلی بانەرە نوێیەکە */
+        .banner-container {
+            max-width: 400px;
             margin: 10px auto 20px auto;
-            display: block;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         
-        .kurdish-flag {
-            width: 90px;
+        .main-banner {
+            width: 100%;
             height: auto;
-            border-radius: 5px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            display: block;
         }
 
         .container {
@@ -117,12 +119,10 @@
 </head>
 <body>
 
-    <div class="flag-container">
-        <img src="https://flagcdn.com/w320/kurdistan.png" 
-             alt="☀️" 
-             class="kurdish-flag" 
-             onerror="this.style.display='none'; document.getElementById('emoji-flag').style.display='block';">
-        <h2 id="emoji-flag" style="display:none; margin:0;">☀️✌️</h2>
+    <div class="banner-container">
+        <img src="https://raw.githubusercontent.com/kadirshexbzeni/schedule/refs/heads/main/IMG_4316.png" 
+             alt="Banner" 
+             class="main-banner">
     </div>
 
     <div class="container">
@@ -235,8 +235,7 @@
         }
 
         function getVisitorCount() {
-            // بەکارهێنانی localStorage بۆ بژمێرێکی جێگیر و بێ کێشە
-            let count = localStorage.getItem('unique_visits_kadir') || 45; // لە ٤٥ـەوە دەست پێ دەکات بۆ نموونە
+            let count = localStorage.getItem('unique_visits_kadir') || 1;
             count = parseInt(count) + 1;
             localStorage.setItem('unique_visits_kadir', count);
             document.getElementById('visit-count').innerText = count;
